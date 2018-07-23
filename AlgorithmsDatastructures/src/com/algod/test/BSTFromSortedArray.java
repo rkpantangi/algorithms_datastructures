@@ -5,7 +5,7 @@ import java.util.Arrays;
 import com.algod.util.BTreePrinter2;
 import com.algod.util.TreeNode;
 
-public class BSTFromArray {
+public class BSTFromSortedArray {
 
 	public static void main(String[] args) {
 		int arr[] = new int [] {1, 2, 3, 4, 5, 6};
