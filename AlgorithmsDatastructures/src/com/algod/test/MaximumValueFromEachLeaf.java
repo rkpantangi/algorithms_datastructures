@@ -8,12 +8,13 @@ public class MaximumValueFromEachLeaf {
 
 	private static  class InvertedTreeNode {
 		int data;
-		int max = Integer.MIN_VALUE;
+		int max;
 		InvertedTreeNode parent;
 		
 		public InvertedTreeNode(int data) {
 			super();
 			this.data = data;
+			this.max = data;
 		}
 		
 		public void printTree() {
@@ -31,8 +32,9 @@ public class MaximumValueFromEachLeaf {
 		// tree example is -
 		//        4
         //      1   5
-       //      2   3 6
-		int [] arr = new int [] {6, 4, 1, 4, 5, 5, 3, 1, 2, 5, 6};
+       //      9   3 6
+	  //      8 2
+		int [] arr = new int [] {6, 4, 1, 4, 5, 5, 3, 1, 2, 5, 6, 9, 8, 9, 2};
 		Map<Integer, InvertedTreeNode> leaves = new HashMap<>();
 		for (int i=1;i<arr.length;i+=2) {
 			int from = arr[i];
@@ -44,10 +46,10 @@ public class MaximumValueFromEachLeaf {
 				parent = leaves.get(from);
 				if (parent == null) {
 					parent = new InvertedTreeNode(from);
-					map.put(from, parent);
 				} else {
 					leaves.remove(from);
 				}
+				map.put(from, parent);
 			}
 			
 			InvertedTreeNode child = map.get(to);
@@ -86,6 +88,6 @@ public class MaximumValueFromEachLeaf {
 		}
 		value.max = Math.max(value.data, max);
 		int retmax = findMaxOfLeaf(value.parent, value.max);
-		return Math.max(retmax, max);
+		return Math.max(retmax, value.max);
 	}
 }
