@@ -30,11 +30,11 @@ public class MaximumValueFromEachLeaf {
 	
 	public static void main(String[] args) {
 		// tree example is -
-		//        4
-        //      1   5
-       //      9   3 6
-	  //      8 2
-		int [] arr = new int [] {6, 4, 1, 4, 5, 5, 3, 1, 2, 5, 6, 9, 8, 9, 2};
+		//					4
+		//			1				5
+		//		9				3		6
+		//	8		2
+		int [] arr = new int [] {6, 4, 1, 4, 5, 1, 9, 5, 3, 5, 6, 9, 8, 9, 2};
 		Map<Integer, InvertedTreeNode> leaves = new HashMap<>();
 		for (int i=1;i<arr.length;i+=2) {
 			int from = arr[i];
@@ -44,7 +44,9 @@ public class MaximumValueFromEachLeaf {
 			
 			if (parent == null) {
 				parent = leaves.get(from);
+				// was it a child
 				if (parent == null) {
+					// first time seen
 					parent = new InvertedTreeNode(from);
 				} else {
 					leaves.remove(from);
@@ -52,14 +54,18 @@ public class MaximumValueFromEachLeaf {
 				map.put(from, parent);
 			}
 			
-			InvertedTreeNode child = map.get(to);
+			InvertedTreeNode child = leaves.get(to);
+			if (child != null ) {
+				throw new IllegalArgumentException("Leaf " + to + " seen more than once!");
+			}
+			
+			// is it seen as a parent
+			child = map.get(to);
 			if (child == null) {
-				// only if not seen as a parent in other cases
 				child = new InvertedTreeNode(to);
 				leaves.put(to, child);
 			} else {
-				// no longer a leaf node
-				leaves.remove(to);
+				map.put(to, child);
 			}
 			child.parent = parent;
 		}
