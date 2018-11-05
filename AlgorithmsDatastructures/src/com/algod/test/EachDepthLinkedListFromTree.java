@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import com.algod.util.LinkedNode;
 import com.algod.util.TreeNode;
 
+/**
+ * Generate a linked list of nodes from a Tree at each level.
+ */
 public class EachDepthLinkedListFromTree {
 
 	public static void main(String[] args) {
