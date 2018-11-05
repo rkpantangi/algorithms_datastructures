@@ -5,6 +5,9 @@ import java.util.Arrays;
 import com.algod.util.BTreePrinter2;
 import com.algod.util.TreeNode;
 
+/**
+ * Create a binary search tree from a sorted array
+ */
 public class BSTFromSortedArray {
 
 	public static void main(String[] args) {
