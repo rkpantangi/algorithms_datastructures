@@ -1,5 +1,8 @@
 package com.algod.test;
 
+/**
+ * Least common multiplier of an array of numbers.
+ */
 public class LCMOfArray {
 
 	public static void main(String[] args) {
