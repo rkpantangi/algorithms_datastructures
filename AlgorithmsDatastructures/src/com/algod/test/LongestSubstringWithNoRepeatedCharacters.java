@@ -10,11 +10,10 @@ public class LongestSubstringWithNoRepeatedCharacters {
 //		System.out.println(getLongest("bbbbb"));
 //		System.out.println(getLongest("abababa"));
 //		System.out.println(getLongest("abcdaefghia"));
-		System.out.println(getLongest("abcdaefghi"));
-		System.out.println(getLongest("abcdadefghi"));
-		int [] var = new int[100];
-		System.out.println(var.length);
-		
+//		System.out.println(getLongest("abcdaefghi"));
+//		System.out.println(getLongest("abcdadefghai"));
+//		System.out.println(getLongest("abcbaed"));
+		System.out.println(getLongest("abcbaec"));
 	}
 
 	private static String getLongest(String s) {
@@ -23,14 +22,20 @@ public class LongestSubstringWithNoRepeatedCharacters {
 		int max = 0, mi=0, mj=-1;
 		while(i<s.length()) {
 			if (map.containsKey(s.charAt(i))) {
-				// reset
-				if (max < (i - m)) {
-					max = i-m;
-					mi = m;
-					mj = i-1;
+				int p = map.get(s.charAt(i));
+				if (p < m) {
+					map.put(s.charAt(i), i);
+				} else {
+					// reset
+					if (max < (i - m)) {
+						max = i-m;
+						mi = m;
+						mj = i-1;
+					}
+	//				System.out.println(s.substring(mi, mj+1));
+					m = map.get(s.charAt(i)) + 1;
+					map.put(s.charAt(i), i);
 				}
-				System.out.println(s.substring(mi, mj+1));
-				m = map.put(s.charAt(i), i) + 1;
 			} else {
 				if (i == s.length()-1) {
 					// reset
@@ -39,7 +44,7 @@ public class LongestSubstringWithNoRepeatedCharacters {
 						mi = m;
 						mj = i;
 					}
-					System.out.println("last - " + s.substring(mi, mj+1));
+//					System.out.println("last - " + s.substring(mi, mj+1));
 				} else {
 					map.put(s.charAt(i), i);
 				}
