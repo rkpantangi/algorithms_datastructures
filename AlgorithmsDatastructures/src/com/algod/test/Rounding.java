@@ -6,7 +6,10 @@ public class Rounding {
 		System.out.println(roundNumber(22.8685, 2));
 		
 		System.out.println(roundFractionToMultiple(6.6825, 0.0078125));
-		System.out.println(roundFractionToMultiple(5.787234, 0.1));
+		System.out.println(roundFractionToMultiple(5.699990403487234, 0.1));
+
+		System.out.println(roundFractionToMultiple2(6.6825, 0.0078125));
+		System.out.println(roundFractionToMultiple2(5.699990403487234, 0.1));
 	}
 	
 	private static double roundNumber(double num, int decimals) {
@@ -20,4 +23,10 @@ public class Rounding {
 		double frac = Math.round((num - sig) / factor) * factor;
 		return sig + frac;
 	}
+	
+	private static double roundFractionToMultiple2(double num, double factor) {
+		double frac = Math.round(num / factor) * factor;
+		return frac;
+	}
+
 }
