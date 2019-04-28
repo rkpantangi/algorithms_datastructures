@@ -26,4 +26,9 @@ public class TreeNode<T> {
 		this.right = right;
 		return right;
 	}
+
+	@Override
+	public String toString() {
+		return "[" + data + "]";
+	}
 }
