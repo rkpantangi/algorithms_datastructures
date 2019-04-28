@@ -2,6 +2,9 @@ package com.algod.test;
 
 import com.algod.util.InvertedTreeNode;
 
+/**
+ * Common ancestor of two nodes in a binary tree, when the tree is given in a InvertedNode format.
+ */
 public class CommonAncestorOfNodes {
 
 	public static void main(String[] args) {
