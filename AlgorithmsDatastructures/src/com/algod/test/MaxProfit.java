@@ -25,7 +25,7 @@ public class MaxProfit {
 		
 		input = new int[] {1,3,8,2,18};
 		maxProfit_Buy_Only_Once(input);
-		input = new int[] {1,3,8,2,4};
+		input = new int[] {4,3,8,2,4};
 		maxProfit_Buy_Only_Once(input);
 		input = new int[] {1,8,2,18,4};
 		maxProfit_Buy_Only_Once(input);

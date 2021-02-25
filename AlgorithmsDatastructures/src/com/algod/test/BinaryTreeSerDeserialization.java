@@ -11,7 +11,7 @@ public class BinaryTreeSerDeserialization {
 	
 	public static void main(String[] args) {
 		TreeNode<Integer> n1 = new TreeNode<>(1);
-		TreeNode<Integer> n2 = new TreeNode<Integer>(2);
+		TreeNode<Integer> n2 = new TreeNode<>(2);
 		TreeNode<Integer> n3 = new TreeNode<Integer>(3);
 		TreeNode<Integer> n4 = new TreeNode<Integer>(4);
 		TreeNode<Integer> n5 = new TreeNode<Integer>(5);
