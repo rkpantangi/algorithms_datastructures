@@ -1,0 +1,93 @@
+[1,3] [4,7] [8,9]
+
+6
+
+
+true
+
+[8,9] [1, 10] [4,7] 
+[8,9] [2, 3] [7, 10] [1,15] 
+
+[1 15] [2 3] [7 10] [8 18] [20 25]
+
+[1 15] 
+[1 15] … [20 25]
+
+ [1 15] 
+[1 18] [20 25]
+
+[12 13] [1 10] [16 18]
+
+input 6
+
+   [12 13]
+
+[1 10]            [16 18]
+
+List<Intervals> = ArrayList<Interval>();
+
+class Interval {
+int st;
+int end;	
+}
+
+public class IntervalFind {
+
+private List<Interval> searchIls;
+	
+	public IntervalFind(List<Interval> ils) {
+		// sort by start interval
+		Collections.sort(ils, new Comparator<Interval>() {
+			public int compare(Interval il1, Interval il2) {
+                  return il1.start - il2.start;
+			}
+}
+
+searchIls = new ArrayList<>();
+		// merge the intervals
+		searchIls.add(ils.get(0));
+
+for (int i=1;i<ils.size()-1;ils++) {
+Interval inter = ils.get(i);
+Interval newi = null;
+	for (int j=0;j<searchIls.size();j++) {
+Interval si = searchIls.get(j);
+if (si.end < inter.st) {
+	newi = new Interval(inter.st, inter.end);
+break;
+} else {
+si.st = Math.min(si.st, inter.st);
+si.end = Math.max(si.end, inter.end);
+}
+}
+if (newi != null) searchIls.add(newi);
+}
+		
+// create a final List of intervals	
+	}
+
+	public boolean search(int num) {
+int mid = bstSearch(input, num, 0, searchIls.size()-1);
+if (mid > 0) return true;
+else return false;
+}
+
+private int bstSearch(List<searchIls> input, int num, int bs, int be) {
+	if (bs > be) return -1;
+	int mid = (bs + be)/2;
+	Interval midi = input.get(mid);
+if (num >= midi.st && num <= midi.end) return mid;
+if (num < midi.st) {
+	return bstSearch(input, num, bs, mid-1);
+} else {
+return bstSearch(input, num, mid+1, be);
+}
+}
+	
+}
+
+1 10 12 13 16 18
+
+ 
+
+

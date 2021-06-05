@@ -1,0 +1,64 @@
+package com.algod.test;
+//package com.algod.test;
+//
+//public class TruckTraversalStepsInAGrid2 {
+//
+//	public static void main(String[] args) {
+//		List<List<Integer>> area = new ArrayList<>();
+//	}
+//		/ DEFINE ANY CLASS AND METHOD NEEDED
+//		import java.util.List;
+//		import java.lang.Integer;
+//		import java.util.ArrayList;
+//		// CLASS BEGINS, THIS CLASS IS REQUIRED
+//		public class Solution
+//		{        
+//		    // METHOD SIGNATURE BEGINS, THIS METHOD IS REQUIRED
+//		    int minimumDistance(int numRows, int numColumns, List<List<Integer>> area)
+//		    {
+//		        List<List<Integer>> tracker = new ArrayList<>(area.size());
+//		        for (int i=0;i<area.size();i++) {
+//		            List<Integer> list = new ArrayList<>(area.get(i).size());
+//		            for (int j=0;j<list.size();j++) {
+//		                list.set(j, -1);
+//		            }
+//		            tracker.add(list);
+//		        }
+//		        System.out.println(tracker);
+//		        // WRITE YOUR CODE HERE
+//		        if (area == null)  return -1;
+//		        int steps = recFind(area, 0, 0, numRows-1, numColumns-1, tracker);
+//		        if (steps == Integer.MAX_VALUE) return -1;
+//		        else return steps;
+//		    }
+//		    // METHOD SIGNATURE ENDS
+//		    
+//		    int recFind(List<List<Integer>> area, int r, int c, int numRows, int numColumns, List<List<Integer>> tracker) {
+//		        if (r < 0 || r > numRows || c < 0 || c > numColumns) return Integer.MAX_VALUE;
+//		        
+//		        int trackerCost = tracker.get(r).get(c);
+//		        if (trackerCost >= 0) return trackerCost;
+//		        
+//		        int elem = area.get(r).get(c);
+//		        if (elem == 0) return Integer.MAX_VALUE;
+//		        if (elem == 9) return 0;
+//		        
+//		        int lcost = recFind(area, r, c-1, numRows, numColumns, tracker);
+//		        int rcost = recFind(area, r, c+1, numRows, numColumns, tracker);
+//		        int ucost = recFind(area, r-1, c, numRows, numColumns, tracker);
+//		        int dcost = recFind(area, r+1, c, numRows, numColumns, tracker);
+//		        
+//		        int tcost = Math.min(Math.min(Math.min(lcost, rcost), ucost), dcost);
+//		        if (tcost != Integer.MAX_VALUE) {
+//		            tcost++;
+//		        }
+//		        
+//		        tracker.get(r).set(c, tcost);
+//		        
+//		        return tcost;
+//		    }
+//		}
+//
+//	}
+//
+//}
